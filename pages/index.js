@@ -1,0 +1,66 @@
+import React, { useState, useEffect } from "react";
+import Head from "next/head";
+import Navbar from "../components/Navbar";
+import Main from "../components/Main";
+import About from "../components/About";
+import Skills from "../components/Skills";
+import Work from "../components/Work";
+import Contact from "../components/Contact";
+import Footer from "../components/Footer";
+import MobileNav from "../components/MobileNav";
+import Socials from "../components/Socials";
+import LogoAnimation from "../components/LogoAnimation";
+import IntroVideo from "../components/IntroVideo";
+
+export default function Home() {
+  const [mobileNav, setMobileNav] = useState(false);
+  const [dark, setDark] = useState(false);
+  const [showLogoAnimation, setShowLogoAnimation] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    setShowLogoAnimation(true);
+  }, []);
+
+  useEffect(() => {
+    if (!window.localStorage.getItem("theme")) {
+      window.localStorage.setItem("theme", "light");
+    } else if (window.localStorage.getItem("theme") === "dark") {
+      setDark(true);
+    }
+  }, [dark]);
+
+  return (
+    <div className={dark ? "bgdark" : "bglight"}>
+      <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+        <title>Waseem Khan | Senior Mobile Application Developer</title>
+      </Head>
+      {showLogoAnimation ? (
+        <LogoAnimation setShowLogoAnimation={setShowLogoAnimation} />
+      ) : (
+        <>
+          <Navbar setMobileNav={setMobileNav} setShowLogoAnimation={setShowLogoAnimation} />
+          <MobileNav
+            mobileNav={mobileNav}
+            setMobileNav={setMobileNav}
+            dark={dark}
+            setDark={setDark}
+          />
+          <Main dark={dark} setDark={setDark} />
+          <About dark={dark} />
+          <Skills dark={dark} />
+          <Work dark={dark} />
+          <Contact dark={dark} />
+          <Footer dark={dark} links={true} />
+          <Socials dark={dark} delay={true} />
+          {/* <IntroVideo src="/iintroduction.mp4" /> */}
+        </>
+      )}
+    </div>
+  );
+}

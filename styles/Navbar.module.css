@@ -1,0 +1,84 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;500;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap");
+
+.container {
+  background-color: #07112f;
+}
+
+.navcontainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.linkcontainer {
+  display: flex;
+  align-items: center;
+}
+
+.links,
+.resumelink {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  color: #e2e8ec;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.6s ease;
+  border-radius: 13px;
+  text-align: center;
+}
+
+.links {
+  margin: 0 0.8em;
+}
+
+.links:hover {
+  color: #24ff7c;
+}
+
+.resumelink {
+  color: #24ff7c;
+  border: 2px solid #24ff7c;
+  margin-left: 0.8em;
+  padding: 0.5em 1.2em;
+}
+
+.resumelink:hover {
+  background-color: rgba(36, 255, 124, 0.2);
+}
+
+.numbers {
+  color: #24ff7c;
+  margin-right: 0.2em;
+  font-family: "Roboto Mono", monospace;
+  font-weight: 300;
+}
+
+.hamburger {
+  color: white;
+}
+
+.disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+@media (min-width: 800px) {
+  .navcontainer {
+    width: 80%;
+  }
+
+  .links,
+  .resumelink {
+    display: flex;
+  }
+
+  .hamburger {
+    display: none;
+  }
+}

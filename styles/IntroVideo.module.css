@@ -1,0 +1,109 @@
+.videoContainer {
+  position: fixed;
+  /* overflow: hidden; */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  z-index: 999;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.5s ease;
+}
+
+.desktopCollapsed {
+  width: 200px;
+  height: 200px;
+  bottom: 20px;
+  right: 20px;
+  border-radius: 12px;
+  cursor: pointer;
+  position: fixed;
+}
+
+.mobileCollapsed {
+  width: 80px;
+  height: 80px;
+  bottom: 20px;
+  right: 20px;
+  border-radius: 12px;
+  cursor: pointer;
+  position: fixed;
+}
+
+.expanded {
+  width: 100vw;
+  height: 100vh;
+  bottom: 0;
+  right: 0;
+  border-radius: 0;
+  position: fixed;
+}
+
+.video {
+  width: 100%;
+  height: 100%;
+  transition: all 0.3s ease;
+  display: block;
+  object-fit: cover;
+  object-position: top;
+  border-radius: 12px;
+}
+
+.expanded .video {
+  object-fit: contain;
+  object-position: center;
+}
+
+.playOverlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) !important;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.playOverlay:hover {
+  transform: translate(-50%, -50%) scale(1.1) !important;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+@media (max-width: 767px) {
+  .playOverlay {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+.closeBtn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  border: none;
+  font-size: 22px;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease;
+}
+
+.closeBtn:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
